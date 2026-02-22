@@ -22,8 +22,9 @@ hbosng-logs/
 ## Key Files
 
 - `INSTRUCTIONS/SYSTEMATIC_SETUP.md` - Complete Pi/Git/VS Code setup guide
-- `INSTRUCTIONS/AI_DEBUGGING_WORKFLOW.md` - Safe debugging with rollback
+- `INSTRUCTIONS/AI_DEBUGGING_WORKFLOW.md` - Safe debugging with rollback (includes Phase 6: Contributing Sessions)
 - `INSTRUCTIONS/LOGS_REPO_SETUP.md` - This repository's administration guide
+- `CONTRIBUTING.md` - **How to contribute completed debug sessions**
 - `INDEX.md` - Searchable index of all sessions and findings
 
 ## Quick Links
@@ -31,14 +32,22 @@ hbosng-logs/
 - View all sessions: `INDEX.md`
 - Latest session: See SESSIONS/ directory, sorted by date
 - System state: EXPORTS/etckeeper_snapshots/
+- **Contributing guide**: `CONTRIBUTING.md`
 
 ## Contributing Sessions
 
-When completing a debug session:
-1. Copy session file: `cp ~/logs/hifiberryng/debug_*.md SESSIONS/`
-2. Export etckeeper snapshot: See INSTRUCTIONS/LOGS_REPO_SETUP.md
-3. Update INDEX.md with session summary
-4. Commit: `git add -A && git commit -m "session: [description]"`
+When completing a debug session, follow `CONTRIBUTING.md` for detailed instructions:
+
+```bash
+# Quick summary:
+1. Use ~/src/hbosng-logs/import_session.sh ~/logs/hifiberryng/debug_*.md
+2. Export etckeeper snapshot (if /etc was modified)
+3. Export action log to EXPORTS/action_logs/
+4. Update INDEX.md with session summary
+5. Push to GitHub: git push origin main
+```
+
+**See `CONTRIBUTING.md` for complete step-by-step guide with examples.**
 
 ## Repository Facts
 
