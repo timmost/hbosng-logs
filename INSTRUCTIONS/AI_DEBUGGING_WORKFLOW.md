@@ -400,6 +400,106 @@ git push -u origin timmo/debug-2026-02-22_192458-issue-title
 
 ---
 
+## Phase 6: Contribute to Logs Repository
+
+After each debug session completes, contribute your work to the logs repository for archival and audit trail:
+
+### 6.1 Import Session File
+
+Copy the completed session file to the logs repository:
+
+```bash
+# Method 1: Using helper script (quickest)
+~/src/hbosng-logs/import_session.sh ~/logs/hifiberryng/debug_YYYY-MM-DD_HHMMSS.md
+
+# Method 2: Manual copy
+cp ~/logs/hifiberryng/debug_*.md ~/src/hbosng-logs/SESSIONS/
+```
+
+**What this does**:
+- Copies session file to `SESSIONS/` directory
+- Stages all changes for commit
+- Creates git commit with session metadata
+
+### 6.2 Export etckeeper Snapshot (if applicable)
+
+If your session modified system configuration in `/etc`:
+
+```bash
+# Export /etc git history
+cd /etc
+sudo git bundle create \
+  ~/src/hbosng-logs/EXPORTS/etckeeper_snapshots/etc_$(date +%Y%m%d_%H%M%S).bundle \
+  --all
+
+# Commit to logs repo
+cd ~/src/hbosng-logs
+git add EXPORTS/etckeeper_snapshots/
+git commit -m "exports: add etckeeper snapshot from session [SESSION_ID]"
+```
+
+### 6.3 Export Action Log
+
+Add timestamped copy of action log to logs repository:
+
+```bash
+# Export current action log
+cp ~/action.md ~/src/hbosng-logs/EXPORTS/action_logs/action_$(date +%Y%m%d).md
+
+# Commit to logs repo
+cd ~/src/hbosng-logs
+git add EXPORTS/action_logs/
+git commit -m "logs: export action log for $(date +%Y-%m-%d)"
+```
+
+### 6.4 Update Session Index
+
+Update `~/src/hbosng-logs/INDEX.md` to record the completed session:
+
+```markdown
+| Date | Session ID | Issue | Status | Duration | Files Changed |
+|------|-----------|-------|--------|----------|---------------|
+| 2026-02-22 | debug_2026-02-22_192458 | Audio device detection | ✅ Success | 4m 45s | 3 |
+```
+
+Then commit:
+
+```bash
+cd ~/src/hbosng-logs
+git add INDEX.md
+git commit -m "index: add session $(date +%Y-%m-%d) - [brief description]"
+```
+
+### 6.5 Push to GitHub
+
+Push the updated logs repository to GitHub:
+
+```bash
+cd ~/src/hbosng-logs
+git push origin main
+```
+
+### Complete Contributing Checklist
+
+After completing a debug session:
+
+- [ ] Session file finalized in `~/logs/hifiberryng/`
+- [ ] Session file copied to `~/src/hbosng-logs/SESSIONS/`
+- [ ] Git commit created: `git add SESSIONS/ && git commit -m "session: [id]"`
+- [ ] etckeeper snapshot exported (if /etc was modified)
+- [ ] etckeeper snapshot committed
+- [ ] Action log exported to EXPORTS/action_logs/
+- [ ] Action log committed
+- [ ] INDEX.md updated with session summary
+- [ ] Index commit created
+- [ ] Changes pushed to GitHub: `git push origin main`
+- [ ] Main hbosng repository updated if applicable
+- [ ] Main repository changes pushed to origin
+
+**Result**: Complete audit trail of all changes, with full rollback capability via git history.
+
+---
+
 ## Emergency Rollback
 
 If something breaks during execution, rollback is straightforward:
