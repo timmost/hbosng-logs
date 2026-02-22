@@ -1,0 +1,21 @@
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets (if any)
+.env
+secrets/
+
+# Large files (keep exported only)
+*.iso
+*.img
+
+# Cache
+__pycache__/
+*.pyc
