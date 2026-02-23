@@ -13,12 +13,14 @@ Master record of all debugging sessions, organized by date and status.
 
 | Date | Session ID | Issue | Status | Duration | Files Changed |
 |------|-----------|-------|--------|----------|---------------|
+| 2026-02-23 | debug_2026-02-23_191041_hbosng-setup | HiFiBerry OS NG setup with 10 packages | ✅ Success | 30 min | 10 (packages + config) |
 | 2026-02-22 | init-infra | Repository & workflow infrastructure | ✅ Complete | 8h (setup) | 8 files + 1 export |
 
 ## Infrastructure Setup Events
 
 | Date | Activity | Commits | Action Log |
 |------|----------|---------|-----------|
+| 2026-02-23 | HiFiBerry OS NG setup session | edc86c56, 01f296e1 | action_20260223_hbosng-setup.md |
 | 2026-02-22 | Repository initialization | 7f30c414 | action_20260222.md |
 | 2026-02-22 | Action log export | bac88481 | action_20260222.md |
 | 2026-02-22 | Main repo documentation | 319f3681 | LOGS_README.md added |
@@ -32,20 +34,20 @@ Master record of all debugging sessions, organized by date and status.
 
 ## Statistics
 
-- **Total Sessions**: 1 (infrastructure setup)
-- **Completed**: 1
+- **Total Sessions**: 2 (1 infrastructure + 1 HiFiBerry setup)
+- **Completed**: 2
 - **Success Rate**: 100%
-- **Infrastructure Commits**: 3 (7f30c414, bac88481, 319f3681)
+- **Latest Session**: 2026-02-23 (HiFiBerry OS NG setup)
 - **Repositories**: 
-  - hbosng-logs (22 Feb 2026)
-  - hbosng (main repo with logs reference)
+  - hbosng-logs (23 Feb 2026)
+  - hbosng (with fixed install-all script)
 
 ## Quick Lookup
 
 ### By Session Type
 - Infrastructure Setup: 2026-02-22 (init-infra)
 - Debug Sessions: (awaiting first debug session)
-- Audio Config: (none yet)
+- Audio Config: 2026-02-23 (HiFiBerry OS NG setup)
 - Network Config: (none yet)
 - System Config: (none yet)
 
