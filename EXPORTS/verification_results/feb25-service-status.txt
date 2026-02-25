@@ -1,0 +1,42 @@
+Unit pipewire.service could not be found.
+● audiocontrol.service - HiFiBerry AudioControl - Audio Player Management Service
+     Loaded: loaded (/usr/lib/systemd/system/audiocontrol.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-02-25 20:36:29 CET; 41min ago
+ Invocation: 1540af8c99c940ad8bd703c8f6584314
+   Main PID: 1111 (audiocontrol)
+      Tasks: 24 (limit: 764)
+        CPU: 17.004s
+     CGroup: /system.slice/audiocontrol.service
+             └─1111 /usr/bin/audiocontrol -c /etc/audiocontrol/audiocontrol.json --log-config /etc/audiocontrol/logging.json
+
+Feb 25 21:15:58 hifiberryng audiocontrol[1111]: [2026-02-25 21:15:58] [INFO] [audiocontrol::api::events] WebSocket client disconnected (id: 32), remaining clients: 0
+Feb 25 21:16:04 hifiberryng audiocontrol[1111]: [2026-02-25 21:16:04] [INFO] [audiocontrol::api::events] WebSocket client registered (id: 33), total clients: 1
+Feb 25 21:16:13 hifiberryng audiocontrol[1111]: [2026-02-25 21:16:13] [INFO] [audiocontrol::api::spotify] Successfully retrieved Spotify access token
+Feb 25 21:16:31 hifiberryng audiocontrol[1111]: [2026-02-25 21:16:31] [INFO] [audiocontrol::api::spotify] Successfully retrieved Spotify access token
+Feb 25 21:16:50 hifiberryng audiocontrol[1111]: [2026-02-25 21:16:50] [INFO] [audiocontrol::api::spotify] Successfully retrieved Spotify access token
+Feb 25 21:17:04 hifiberryng audiocontrol[1111]: [2026-02-25 21:17:04] [INFO] [audiocontrol::api::events] WebSocket client disconnected (id: 33), remaining clients: 0
+Feb 25 21:17:08 hifiberryng audiocontrol[1111]: [2026-02-25 21:17:08] [INFO] [audiocontrol::api::spotify] Successfully retrieved Spotify access token
+Feb 25 21:17:10 hifiberryng audiocontrol[1111]: [2026-02-25 21:17:10] [INFO] [audiocontrol::api::events] WebSocket client registered (id: 34), total clients: 1
+Feb 25 21:17:28 hifiberryng audiocontrol[1111]: [2026-02-25 21:17:28] [INFO] [audiocontrol::api::spotify] Successfully retrieved Spotify access token
+Feb 25 21:17:49 hifiberryng audiocontrol[1111]: [2026-02-25 21:17:49] [INFO] [audiocontrol::api::spotify] Successfully retrieved Spotify access token
+
+● sigmatcpserver.service - HiFiBerry DSP TCP/REST API service
+     Loaded: loaded (/usr/lib/systemd/system/sigmatcpserver.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2026-02-25 20:46:51 CET; 31min ago
+ Invocation: 7588a33f9be4457e821f7e36f60fea61
+   Main PID: 4642 (sigmatcpserver)
+      Tasks: 7 (limit: 764)
+        CPU: 5.509s
+     CGroup: /system.slice/sigmatcpserver.service
+             └─4642 /usr/bin/python3 /usr/bin/sigmatcpserver --localhost --enable-rest --alsa
+
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: WARNING:root:DSP profiles directory not found: /usr/share/hifiberry/dspprofiles
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:root:Autoloading stored filters for current DSP profile
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:root:Autoloading filters for DSP profile SHA-1 checksum (length-based): 11AB4A5AE7A8A7D6E7062B492A6320932D8DD717
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:root:No stored settings found for checksum 11AB4A5AE7A8A7D6E7062B492A6320932D8DD717
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:root:None
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:root:Starting REST API server on localhost:13141
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:root:Starting REST API on localhost:13141 using Waitress
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:root:starting TCP server
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:waitress:Serving on http://[::1]:13141
+Feb 25 20:46:55 hifiberryng sigmatcpserver[4642]: INFO:waitress:Serving on http://127.0.0.1:13141
