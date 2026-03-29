@@ -1,3 +1,9 @@
+
+# This repo is stale - never got this to work. 
+# refer to my moodeaudio setup
+
+
+
 # HiFiBerry OS NG - Logs & Documentation Repository
 
 This repository maintains:
